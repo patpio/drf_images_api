@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # Local
+    'users.apps.UsersConfig',
+    'tiers.apps.TiersConfig',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 IMAGE_TYPES = ['jpeg', 'png']
+
+AUTH_USER_MODEL = 'users.CustomUser'
