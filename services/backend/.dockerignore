@@ -2,4 +2,3 @@
 *.pyc
 .env.dev
 .env.db.dev
-media
