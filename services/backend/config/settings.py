@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # Local
     'users.apps.UsersConfig',
     'tiers.apps.TiersConfig',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
