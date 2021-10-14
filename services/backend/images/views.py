@@ -8,7 +8,7 @@ from rest_framework import viewsets, serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from config.settings import CACHE_TTL
+# from config.settings import CACHE_TTL
 from helpers.create_thumbnail import create_thumbnail
 from images.models import Image, Thumbnail
 from images.serializers import ImageSerializer, ImageSerializerWithoutOriginalLink, ThumbnailGeneratorSerializer, \
@@ -29,10 +29,10 @@ class ImageViewSet(viewsets.ModelViewSet):
         else:
             return ImageSerializerWithoutOriginalLink
 
-    @method_decorator(cache_page(CACHE_TTL))
-    @method_decorator(vary_on_cookie)
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
+    # @method_decorator(cache_page(CACHE_TTL))
+    # @method_decorator(vary_on_cookie)
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super().dispatch(request, *args, **kwargs)
 
 
 class ThumbnailViewSet(viewsets.ViewSet):
@@ -61,8 +61,8 @@ class ThumbnailViewSet(viewsets.ViewSet):
 
         return Response(result.errors)
 
-    @method_decorator(cache_page(CACHE_TTL))
-    @method_decorator(vary_on_cookie)
+    # @method_decorator(cache_page(CACHE_TTL))
+    # @method_decorator(vary_on_cookie)
     def retrieve(self, request, pk=None):
         image = Image.objects.filter(pk=pk, author=request.user)
         if not image:

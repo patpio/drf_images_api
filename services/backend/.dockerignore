@@ -1,7 +1,7 @@
+__pycache__
 .idea
 *.pyc
-.env.dev
-.env.db.dev
+envs/
 
 .coverage
 .pytest_cache/
