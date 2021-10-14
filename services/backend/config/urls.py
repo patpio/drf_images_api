@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='api/v1/images')),
     path('api/v1/', include('images.urls')),
+    path('api/v1/', include('expiring_links.urls')),
 ]
 
 if settings.DEBUG:
