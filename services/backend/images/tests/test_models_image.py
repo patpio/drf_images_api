@@ -1,6 +1,6 @@
 import pytest
 
-from ..models import Image
+from images.models import Image
 
 
 @pytest.mark.models

@@ -1,6 +1,6 @@
 import pytest
 
-from ..models import Thumbnail
+from images.models import Thumbnail
 
 
 @pytest.mark.models

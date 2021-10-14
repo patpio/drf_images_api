@@ -1,6 +1,6 @@
 import pytest
 
-from ..serializers import ImageSerializer
+from images.serializers import ImageSerializer
 
 
 @pytest.mark.serializers

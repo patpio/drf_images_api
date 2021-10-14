@@ -1,6 +1,6 @@
 import pytest
 
-from ..serializers import ThumbnailGeneratorSerializer
+from images.serializers import ThumbnailGeneratorSerializer
 
 
 @pytest.mark.serializers
