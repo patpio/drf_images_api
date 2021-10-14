@@ -4,3 +4,6 @@
 .env.db.dev
 media
 **/fixtures/
+
+.coverage
+.pytest_cache/
