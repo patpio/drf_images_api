@@ -15,6 +15,10 @@ factory-boy = "==3.2.0"
 pillow = "==8.3.2"
 python-magic = "==0.4.24"
 drf-yasg = "==1.20.0"
+pytest = "==6.2.5"
+pytest-django = "==4.4.0"
+pytest-cov = "==3.0.0"
+pytest-factoryboy = "==2.1.0"
 
 [dev-packages]
 
