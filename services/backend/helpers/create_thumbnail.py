@@ -14,7 +14,7 @@ def create_thumbnail(image, height):
     path = settings.MEDIA_ROOT + 'resized_images'
     os.makedirs(path, exist_ok=True)
 
-    filename = image.name
+    filename = image.name.replace(' ', '_')
     new_filename = os.path.splitext(filename)[0] + '_' + str(height) + os.path.splitext(filename)[1]
     file_path = path + os.path.sep + new_filename
     img.save(file_path)
