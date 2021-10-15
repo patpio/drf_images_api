@@ -7,3 +7,5 @@ media
 
 .coverage
 .pytest_cache/
+
+htmlcov

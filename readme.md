@@ -1,1 +1,0 @@
-# DRF Images API

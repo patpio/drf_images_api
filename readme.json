@@ -1,0 +1,65 @@
+{
+    "project_name": "DRF Images Api",
+    "version": "0.1.0",
+    "description": "REST API for storing and resizing images.",
+    "snap_store_name": null,
+    "icon_src": null,
+    "screenshot_src": null,
+    "author": "Patrick Piotrowski",
+    "github_username": "patpio",
+    "author_linkedin_username": "https://www.linkedin.com/in/patrick-piotrowski-359437209/",
+    "author_codewars_username": "https://www.codewars.com/users/pat_pi",
+    "author_website": "https://github.com/patpio",
+    "homepage": "https://github.com/patpio/drf_images_api/blob/master/readme.md",
+    "project_demo_url": "https://drf-images-api.herokuapp.com",
+    "repository_url": "https://github.com/patpio/drf_images_api",
+    "contributing_url": null,
+    "documentation_url": "https://github.com/patpio/drf_images_api/blob/master/readme.md",
+    "license_url": "https://github.com/patpio/drf_images_api/blob/master/LICENSE",
+    "issues_url": null,
+    "license": "Beerware",
+    "install_command": [
+        "Requirements:",
+        "- Docker",
+        "- Docker-Compose",
+        "- Python 3.9\n",
+        "Make sure you have Docker and Docker-Compose installed on your device.",
+        "Rename and refill envs files (.env.db.dev-default => .env.db.dev and .env.dev-default => .env.dev).\n",
+        "For development app run command in your terminal:",
+        "docker-compose -f docker-compose.dev.yaml up --build"
+    ],
+    "usage_command": [
+        "API requires authentication, except for the expiring links.\n",
+        "You can log in as admin:",
+        "Admin panel: 'http://0.0.0.0:8000/admin/'\n",
+        "Swagger: 'http://0.0.0.0:8000/swagger/'",
+        "Redoc: 'http://0.0.0.0:8000/redoc/'\n",
+        "You can add fake initial data to your database:",
+        "docker-compose -f docker-compose.dev.yaml exec backend python manage.py runscript users_factory",
+        "docker-compose -f docker-compose.dev.yaml exec backend python manage.py runscript imagers_factory\n",
+        "Image list and create: 'http://0.0.0.0:8000/api/v1/images'",
+        "Thumbnails create: 'http://0.0.0.0:8000/api/v1/thumbnails'",
+        "Thumbnails list for given image: 'http://0.0.0.0:8000/api/v1/thumbnails/<image_id>'",
+        "Expiring link create: 'http://0.0.0.0:8000/api/v1/link'\n",
+        "Performance:",
+        "- Easy horizontal scaling using container orchestration (f.e. Kubernetes)",
+        "- We use Redis for caching",
+        "- We create thumbnails on demand"
+    ],
+    "test_command": [
+        "docker-compose -f docker-compose.dev.yaml exec backend pytest"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:patpio/drf_images_api.git"
+    },
+    "credits": [
+        {
+            "name": "Markdown Readme Generator",
+            "url": "https://github.com/pedroermarinho/markdown-readme-generator"
+        }
+    ],
+    "is_github_repos": true,
+    "has_start_command": true,
+    "has_test_command": true
+}
