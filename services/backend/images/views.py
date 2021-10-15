@@ -1,14 +1,10 @@
 import os
 
 from django.conf import settings
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
-from django.views.decorators.vary import vary_on_cookie
-from rest_framework import viewsets, serializers
+from rest_framework import viewsets, serializers, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-# from config.settings import CACHE_TTL
 from helpers.create_thumbnail import create_thumbnail
 from images.models import Image, Thumbnail
 from images.serializers import ImageSerializer, ImageSerializerWithoutOriginalLink, ThumbnailGeneratorSerializer, \
@@ -28,11 +24,6 @@ class ImageViewSet(viewsets.ModelViewSet):
             return ImageSerializer
         else:
             return ImageSerializerWithoutOriginalLink
-
-    # @method_decorator(cache_page(CACHE_TTL))
-    # @method_decorator(vary_on_cookie)
-    # def dispatch(self, request, *args, **kwargs):
-    #     return super().dispatch(request, *args, **kwargs)
 
 
 class ThumbnailViewSet(viewsets.ViewSet):
@@ -59,10 +50,8 @@ class ThumbnailViewSet(viewsets.ViewSet):
 
             return Response({'links': thumbnail_urls})
 
-        return Response(result.errors)
+        return Response(result.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # @method_decorator(cache_page(CACHE_TTL))
-    # @method_decorator(vary_on_cookie)
     def retrieve(self, request, pk=None):
         image = Image.objects.filter(pk=pk, author=request.user)
         if not image:

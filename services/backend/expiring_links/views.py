@@ -6,7 +6,7 @@ from django.conf import settings
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
@@ -34,7 +34,7 @@ class ExpiringLinkView(viewsets.ViewSet):
 
             return Response({'link': url})
 
-        return Response(result.errors)
+        return Response(result.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, token):
         token = token.split('.')[0]
@@ -42,6 +42,7 @@ class ExpiringLinkView(viewsets.ViewSet):
         expiration_date = obj.created_at + timedelta(seconds=obj.duration)
 
         if expiration_date <= timezone.now():
-            return Response(f'Link is no more available. Expiration date: {expiration_date}.')
+            return Response(f'Link is no more available. Expiration date: {expiration_date}.',
+                            status=status.HTTP_400_BAD_REQUEST)
 
         return FileResponse(open(os.path.join(settings.MEDIA_URL[1:], obj.url), 'rb'))
