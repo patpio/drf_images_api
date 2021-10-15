@@ -12,7 +12,7 @@ Welcome to DRF Images Api 👋
 </p>
 
 > REST API for storing and resizing images.
-### 🏠 [Homepage](https://github.com/patpio/drf_images_api/blob/master/readme.md)
+### 🏠 [Homepage](https://github.com/patpio/drf_images_api/blob/master/README.md)
 ### ✨ [Demo](https://drf-images-api.herokuapp.com)
 ## Install
 ```sh
