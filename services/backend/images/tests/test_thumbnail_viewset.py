@@ -43,7 +43,7 @@ def test_user_cannot_make_thumbnail_with_wrong_height(db, api_rf, create_test_us
     force_authenticate(request, user)
     response = view(request)
 
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert set(response.data) == {'heights'}
     assert response.data.get('heights')[0] == 'Chosen height (100 px) is not available in your tier (test tier).'
 
@@ -79,4 +79,5 @@ def test_user_cannot_get_list_of_thumbnails_for_wrong_image(db, api_rf, create_t
     force_authenticate(request, user)
     response = view(request, pk)
 
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert 'Image with given id does not exist.' in response.data

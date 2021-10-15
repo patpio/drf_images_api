@@ -47,7 +47,7 @@ def test_user_cannot_make_expiring_link_because_of_tier(db, api_rf, create_test_
     force_authenticate(request, user)
     response = view(request)
 
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert set(response.data) == {'non_field_errors'}
     assert response.data.get('non_field_errors')[0] == 'Your tier have no access for expiring links.'
 
@@ -87,5 +87,5 @@ def test_user_cannot_get_image_with_expired_link(db, api_rf, create_test_image, 
     request = api_rf.get(f'/api/v1/links/{token}.jpg')
     response = view(request, token)
 
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert response.data == f'Link is no more available. Expiration date: {expiration_date}.'
