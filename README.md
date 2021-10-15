@@ -65,10 +65,10 @@ docker-compose -f docker-compose.dev.yaml exec backend pytest
 
 ## Author
 👤 **Patrick Piotrowski**
-* Website: https://github.com/patpio
 
-* GitHub: [@patpio](https://github.com/{github_username})
-* LinkedIn: [@https://www.linkedin.com/in/patrick-piotrowski-359437209/](https://linkedin.com/in/{author_linkedin_username})
+* GitHub: https://github.com/patpio
+* LinkedIn: https://www.linkedin.com/in/patrick-piotrowski-359437209
+* CodeWars: https://www.codewars.com/users/pat_pi
 
 
 
